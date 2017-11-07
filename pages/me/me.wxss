@@ -1,0 +1,37 @@
+/**me.wxss**/
+.color_gray {
+    color: #888A8A;
+}
+
+.opacity_clear {
+  opacity: 0;
+}
+
+.backcolor_clear {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.userinfo-avatar {
+  width: 128px;
+  height: 128px;
+  margin: 20px;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 100px;
+  background-color: '#FF0000';
+  color: '#FF0000'
+}

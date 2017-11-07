@@ -1,0 +1,78 @@
+<view class="container lightgray_back_color">
+
+  <view class='selector_back_view lightgray_back_color' style='height:{{header_height}}px'>
+    <view class='category_view title_item_height'>
+      <view class='category_title white_back_color gray_text_color'>地区</view>
+      <scroll-view  scroll-x="true" style=" white-space: nowrap; display: flex" class='category_title_container white_back_color'>
+          <block  wx:for="{{countries}}">
+            <view style="display: inline-block">
+              <view class="category_item title_item_height {{selectedCountry==item.name?'selected':'gray_text_color'}}" data-id='{{item.name}}' bindtap='selectedCountry'>{{item.name}}</view>
+            </view>
+          </block>
+      </scroll-view>
+    </view>
+
+    <view class='category_view title_item_height'>
+      <view class='category_title white_back_color gray_text_color'>分类</view>
+      <scroll-view  scroll-x="true" style=" white-space: nowrap; display: flex" class='category_title_container white_back_color'>
+          <block  wx:for="{{types}}">
+            <view style="display: inline-block">
+              <view class="category_item title_item_height {{selectedType==item.id?'selected':'gray_text_color'}}" data-id='{{item.id}}' bindtap='selectedType'>{{item.title}}</view>
+            </view>
+          </block>
+      </scroll-view>
+    </view> 
+
+    <view class='category_view title_item_height'>
+      <view class='category_title white_back_color gray_text_color'>热门</view>
+      <scroll-view  scroll-x="true" style=" white-space: nowrap; display: flex" class='category_title_container white_back_color'>
+          <block  wx:for="{{hots}}">
+            <view style="display: inline-block">
+              <view class="category_item title_item_height {{selectedHot==item.id?'selected':'gray_text_color'}}" data-id='{{item.id}}' bindtap='selectedHot'>{{item.title}}</view>
+            </view>
+          </block>
+      </scroll-view>
+    </view> 
+  </view>
+
+  <view class="{{nomoreData ? 'nodata_view' : 'hidden_view'}} white_back_color">啊哦，没有更多数据了哦～</view>
+
+  <view class='list_back_view' style='height:{{srollHeight}}px'>
+    <scroll-view  scroll-y="true" class="choice_list white_back_color"  bindscrolltolower="scrollToLower">
+    <block wx:for="{{audioArr}}">
+        <navigator url="../audio/audio?audio_id={{item.audio_id}}&cover={{item.user.cover_url}}">
+            <view class="choice_item">
+                <view style='background-image:url({{item.user.cover_url}}-mdl); background-size:cover' class="choice_cover">
+                    <view style="background-color:rgba(1,1,1,0.2)" class="choice_cover">
+                        <view class="opacity_clear">[ta]的音频</view>
+                        <view class="choice_item_title_tip">[ta]的音频</view>
+                        <view class="choice_item_title">♪ {{item.title}}</view>
+                    </view>
+                </view>
+                <view class='choice_item_user backcolor_clear'>
+                    <image class='choice_item_user_avatar' src='{{item.user.avatar}}-mdl' mode='aspectFill'></image>
+                    <view class='choice_item_user_nickname'>{{item.user.nickname}}</view>
+                    <view class='choice_item_user_line'></view>
+                    <view class='choice_item_user_tag color_gray'>{{item.country_pro_type_str}}</view>
+                    <view class='choice_item_user_view_back'>
+                        <view class='choice_item_user_viewnum'>{{item.listen_number}}</view>  
+                        <image class='choice_item_user_viewicon' 
+                               src="/images/index/page_views.png" 
+                               mode='aspectFit'>
+                        </image> 
+                    </view>
+                </view>
+                <view class="choice_item_sign color_gray">{{item.user.sign}}</view>
+                <view class="choice_item_space"></view>
+            </view>
+        </navigator>
+      </block>
+    </scroll-view>
+  </view>
+  
+
+    <loading hidden="{{loadingHidden}}">
+        加载中...
+    </loading>
+
+</view>

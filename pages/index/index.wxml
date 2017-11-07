@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view> -->
+  
+  <view class="choice_list">
+    <block wx:for="{{audioArr}}">
+        <navigator url="../audio/audio?audio_id={{item.audio_id}}&cover={{item.user.cover_url}}">
+            <view class="choice_item">
+                <view style='background-image:url({{item.user.cover_url}}-mdl); background-size:cover' class="choice_cover">
+                    <view style="background-color:rgba(1,1,1,0.2)" class="choice_cover">
+                        <view class="opacity_clear">[ta]的音频</view>
+                        <view class="choice_item_title_tip">[ta]的音频</view>
+                        <view class="choice_item_title">♪ {{item.title}}</view>
+                    </view>
+                </view>
+                <view class='choice_item_user backcolor_clear'>
+                    <image class='choice_item_user_avatar' src='{{item.user.avatar}}-mdl' mode='aspectFill'></image>
+                    <view class='choice_item_user_nickname'>{{item.user.nickname}}</view>
+                    <view class='choice_item_user_line'></view>
+                    <view class='choice_item_user_tag color_gray'>{{item.country_pro_type_str}}</view>
+                    <view class='choice_item_user_view_back'>
+                        <view class='choice_item_user_viewnum'>{{item.listen_number}}</view>  
+                        <image class='choice_item_user_viewicon' 
+                               src="/images/index/page_views.png" 
+                               mode='aspectFit'>
+                        </image> 
+                    </view>
+                </view>
+                <view class="choice_item_sign color_gray">{{item.user.sign}}</view>
+                <view class="choice_item_space"></view>
+            </view>
+        </navigator>
+      </block>
+    </view>
+
+    <loading hidden="{{loadingHidden}}">
+        加载中...
+    </loading>
+
+</view>

@@ -1,0 +1,40 @@
+<view class="container">
+    <view class='cover_view' style='background-image:url({{cover}}); background-size:cover'>
+      <view class='audio_back'>
+        <audio class='expert_audio' poster="{{audio.audio.user.avatar}}" name="{{audio.audio.title}}" author="{{audio.audio.user.nickname}}" src="{{audio.audio.mp3_url}}" id="expert_audio" loop bindtimeupdate="audioTimeUpdate"></audio>
+      </view>
+
+       <view class='audio_detail'>
+          <view class='audio_play_btn' bindtap='audioBtnClick'>
+          <image class='audio_play_img' src='{{audio_play_btn_img}}'></image>
+        </view>
+        <view class='audio_desc'>
+          <view class='audio_desc_title_back'>
+            <view class='audio_desc_title_line'></view>
+            <view class='audio_desc_title'>{{audio.audio.title}}</view>
+          </view>
+          <view class='audio_desc_slide_back'>
+            <view class='audio_desc_start_time'>{{starttime}}</view>  
+            <view class='audio_desc_slider'>            
+              <slider bindchange="audioSliderChanged" step="1" max='100' activeColor='#3282F0' backgroundColor='#979797' value='{{audio_offset}}' disabled/>
+            </view>
+             <view class='audio_desc_end_time'>{{duration}}</view>  
+          </view> 
+         </view>  
+      </view> 
+    </view>
+    <view class='user_detail'>
+      <view class='qrcode_back'>
+        <view class='qrcode' style='background-image:url({{audio.audio.user.qrcode_url}}); background-size:cover' bindtap='previewImage' bindlongtap='previewImage'></view>
+        <view class='qrcode_intro color_gray'>{{audio.audio.user.qrcode_desc.tiny.content}}</view>
+      </view>
+      <view class='user_intro_back'>
+        <view class='user_intro_tip'>详细介绍</view>
+        <view style='height:{{user_height}}' class='user_intro color_gray'>{{audio.audio.user.intro}}</view> 
+        <view class='show_full_btn' bindtap='fullText'>
+          <image src='{{full_text_img}}' class='full_text_img'></image>
+        </view>
+      </view>
+    </view>
+    <view style='height:20px; width:100%; background-color:#eeeeee'></view>
+</view>

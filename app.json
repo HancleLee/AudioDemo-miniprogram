@@ -1,0 +1,42 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/audio/audio",
+    "pages/expert/expert",
+    "pages/me/me"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":"true"
+  },
+
+  "tabBar": {
+    "color": "#303221",
+    "selectedColor": "#3282F0",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/tabbar/home_selected.png",
+        "iconPath": "images/tabbar/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/tabbar/expert_selected.png",
+        "iconPath": "images/tabbar/expert.png",
+        "pagePath": "pages/expert/expert",
+        "text": "专家音频"
+      },
+      {
+        "selectedIconPath": "images/tabbar/me_selected.png",
+        "iconPath": "images/tabbar/me.png",
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  }
+}
